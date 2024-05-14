@@ -9,7 +9,7 @@ namespace Server.Controllers
     [ApiController]
     public class AuthenticationController(IUserAccountRepository userAccountRepository) : ControllerBase
     {
-        [HttpPost("Register")]
+        [HttpPost("register")]
         public async Task<IActionResult> CreateAsync(RegisterDTO user)
         {
             if (user is null) return BadRequest("Model is empty");
@@ -17,7 +17,7 @@ namespace Server.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Login")]
+        [HttpPost("login")]
         public async Task<IActionResult> SignInAsync(LoginDTO user)
         {
             if (user == null) return BadRequest("Model is empty");
@@ -25,7 +25,7 @@ namespace Server.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Refresh-Token")]
+        [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshTokenAsync(RefreshTokenDTO token)
         {
             if (token == null) return BadRequest("Model is empty");
